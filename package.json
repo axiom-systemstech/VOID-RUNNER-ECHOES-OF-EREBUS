@@ -1,6 +1,6 @@
 {
   "name": "void-runner-echoes-of-erebus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,11 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "three": "^0.180.0"
+    "three": "0.180.0"
   },
   "devDependencies": {
-    "@types/three": "^0.180.0",
-    "typescript": "^5.8.3",
-    "vite": "^7.1.3"
-  }
+    "@types/three": "0.180.0",
+    "typescript": "5.8.3",
+    "vite": "7.1.3"
+  },
+  "packageManager": "npm@11.5.1"
 }
