@@ -221,11 +221,34 @@ class Game{
   if(!this.running)return;const dt=Math.min(world.clock.getDelta(),.05);if(!this.paused&&!this.dialogueOpen){this.time+=dt;this.player.update(dt);this.enemies.forEach(e=>e.update(dt));this.pickups.forEach(p=>p.update(dt));this.checkPickups();this.checkMission();this.updateHUD();world.renderer.render(world.scene,world.camera)}else{world.renderer.render(world.scene,world.camera)}
   requestAnimationFrame(this.loop)
  }
- checkPickups(){
-  for(const p of this.pickups){if(p.used)continue;if(p.mesh.position.distanceTo(this.player.mesh.position)<1.4){p.used=true;p.mesh.visible=false;audio.pickup();
-    if(p.kind==="cell"){this.cells++;this.message(`ENERGY CELL RECOVERED // ${this.cells}`,1200)}
-    if(p.kind==="log"){const n=this.mission===2?1:4;this.logs.add(n);save.logs=Math.max(save.logs,this.logs.size);persist();this.message("MEMORY LOG RECOVERED",1600)}
-    if(p.kind==="ammo")this.player.ammo=12;
+   checkPickups(){
+    for(const p of this.pickups){
+      if(p.used) continue;
+
+      if(p.mesh.position.distanceTo(this.player.mesh.position)<1.4){
+        p.used=true;
+        p.mesh.visible=false;
+        audio.pickup();
+
+        if(p.kind==="cell"){
+          this.cells++;
+          this.message(`ENERGY CELL RECOVERED // ${this.cells}`,1200);
+        }
+
+        if(p.kind==="log"){
+          const n=this.mission===2?1:4;
+          this.logs.add(n);
+          save.logs=Math.max(save.logs,this.logs.size);
+          persist();
+          this.message("MEMORY LOG RECOVERED",1600);
+        }
+
+        if(p.kind==="ammo"){
+          this.player.ammo=12;
+        }
+      }
+    }
+   }
   }}
  checkMission(){
   const alive=this.enemies.filter(e=>!e.dead).length;
