@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body,#app{margin:0;width:100%;height:100%;overflow:hidden;background:#05070d;color:#d8f7ff;font-family:Rajdhani,system-ui,sans-serif}
+button{font:600 15px Rajdhani,sans-serif;letter-spacing:2px;color:#d8f7ff;background:rgba(15,24,34,.85);border:1px solid #355261;padding:13px 22px;cursor:pointer;text-transform:uppercase;transition:.15s}
+button:hover{border-color:#68f3ff;background:rgba(30,53,66,.95);transform:translateY(-1px)}
+button.primary{background:#68f3ff;color:#041016;border-color:#68f3ff;box-shadow:0 0 25px rgba(104,243,255,.18)}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,rgba(16,42,56,.45),rgba(2,4,9,.96) 70%);z-index:20}
+.hidden{display:none!important}
+.scanlines{position:absolute;inset:0;pointer-events:none;opacity:.13;background:repeating-linear-gradient(0deg,transparent 0,transparent 2px,#fff 3px)}
+.menu-card{width:min(720px,92vw);padding:42px;border:1px solid #294654;background:linear-gradient(145deg,rgba(5,12,19,.94),rgba(8,14,24,.88));box-shadow:0 25px 100px #000;border-radius:4px;text-align:center}
+.menu-card.compact{width:min(430px,90vw)}
+.eyebrow{font:700 11px "Space Mono",monospace;letter-spacing:3px;color:#6da8b8;margin-bottom:12px}
+h1{font-size:clamp(70px,13vw,150px);line-height:.75;margin:0;letter-spacing:-5px;font-weight:700;text-shadow:0 0 30px rgba(104,243,255,.2)}
+h1 span{color:#68f3ff}
+h2{font-size:48px;margin:10px 0 16px;letter-spacing:3px}
+.subtitle{font:700 16px "Space Mono",monospace;letter-spacing:8px;color:#a7c9d1;margin:26px 0}
+.tagline{color:#7998a4;font-style:italic;margin:24px auto;max-width:560px}
+.menu-buttons{display:flex;flex-direction:column;gap:10px;width:min(310px,80vw);margin:30px auto}
+.menu-note{font:11px "Space Mono",monospace;color:#526b75;line-height:1.7}
+#gameCanvas{display:block;width:100%;height:100%}
+#hud{position:absolute;inset:0;pointer-events:none}
+.top-left{position:absolute;top:24px;left:26px;max-width:410px;text-shadow:0 2px 4px #000}
+.objective-label{font:700 10px "Space Mono",monospace;color:#68f3ff;letter-spacing:2px}
+#objective{font-size:21px;font-weight:600}
+.status{position:absolute;left:26px;bottom:28px;width:250px}
+.bar{display:grid;grid-template-columns:25px 1fr 38px;gap:8px;align-items:center;font:700 11px "Space Mono",monospace;margin-top:6px}
+.bar>div{height:7px;background:#17242b;border:1px solid #29404a}
+.bar i{display:block;height:100%;width:100%;background:#68f3ff;box-shadow:0 0 9px rgba(104,243,255,.3)}
+.weapon{position:absolute;right:28px;bottom:25px;text-align:right;font-family:"Space Mono",monospace;text-shadow:0 2px 4px #000}
+#weaponName{font-size:14px;color:#68f3ff;letter-spacing:2px}
+#ammo{font-size:38px;font-weight:700}
+#crosshair{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:26px "Space Mono",monospace;color:#d8f7ff;text-shadow:0 0 10px #68f3ff}
+#damageFlash{position:absolute;inset:0;background:#f23a3a;opacity:0;transition:opacity .05s}
+#interact{position:absolute;left:50%;bottom:25%;transform:translateX(-50%);padding:8px 15px;background:rgba(0,0,0,.65);border:1px solid #355261;font:12px "Space Mono",monospace;opacity:0}
+#message{position:absolute;left:50%;top:68%;transform:translateX(-50%);font:700 13px "Space Mono",monospace;text-align:center;color:#b9dce4;text-shadow:0 2px 5px #000;max-width:80vw}
+#bossBarWrap{position:absolute;left:50%;top:28px;transform:translateX(-50%);width:min(520px,70vw);text-align:center}
+#bossName{font:700 13px "Space Mono",monospace;letter-spacing:4px;color:#ff7180;margin-bottom:5px}
+.bossbar{height:10px;border:1px solid #71313c;background:#1b1014}.bossbar i{display:block;width:100%;height:100%;background:#ff5264}
+.overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:7vh;background:linear-gradient(transparent 45%,rgba(0,0,0,.75));z-index:15}
+.dialogue-box{width:min(900px,92vw);background:rgba(5,10,15,.96);border:1px solid #355261;padding:20px 24px;box-shadow:0 15px 50px #000}
+#speaker{font:700 11px "Space Mono",monospace;color:#68f3ff;letter-spacing:3px;margin-bottom:8px}
+#dialogueText{font-size:21px;min-height:58px;line-height:1.35}
+#dialogueNext{margin-top:14px}
+#scoreBox{font:13px "Space Mono",monospace;line-height:2;color:#8fb5bf;margin:18px 0}
+.trophy-card{text-align:left;max-height:90vh;overflow:auto}
+.trophy-card h2{text-align:center}
+.trophy{display:flex;gap:15px;align-items:center;padding:12px 0;border-bottom:1px solid #1b3039}
+.trophy .icon{font-size:25px;filter:grayscale(1);opacity:.35}.trophy.unlocked .icon{filter:none;opacity:1}
+.trophy strong{display:block}.trophy small{color:#5e7c86}
+#touchControls{position:absolute;inset:0;z-index:10;pointer-events:none}
+#stickZone{position:absolute;left:22px;bottom:25px;width:145px;height:145px;border:1px solid rgba(170,230,240,.22);border-radius:50%;background:rgba(10,25,31,.25);pointer-events:auto}
+#stick{position:absolute;left:47px;top:47px;width:50px;height:50px;border-radius:50%;background:rgba(104,243,255,.2);border:1px solid rgba(104,243,255,.55)}
+.touch-btn{position:absolute;right:28px;bottom:34px;width:92px;height:92px;border-radius:50%;background:rgba(10,25,31,.55);border-color:rgba(104,243,255,.55);pointer-events:auto}
+.touch-btn.small{width:62px;height:62px;right:138px;bottom:45px}.touch-btn#touchSprint{right:138px;bottom:120px}
+@media(max-width:700px){.top-left{top:12px;left:12px;max-width:270px}.objective-label{font-size:8px}#objective{font-size:16px}.status{left:12px;bottom:12px;width:190px}.weapon{right:12px;bottom:12px}.menu-card{padding:28px 20px}.subtitle{letter-spacing:4px}.dialogue-box{padding:15px}#dialogueText{font-size:17px}}
+@media(hover:none) and (pointer:coarse){#crosshair{opacity:.65}}
