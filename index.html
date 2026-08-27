@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#05070d" />
+  <meta name="description" content="VOID RUNNER: Echoes of Erebus — a 3D sci-fi browser game." />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon.svg" />
+  <title>VOID RUNNER: ECHOES OF EREBUS</title>
+</head>
+<body>
+  <div id="app">
+    <div id="menu" class="screen">
+      <div class="scanlines"></div>
+      <div class="menu-card">
+        <div class="eyebrow">AXIOM DYNAMICS // RECOVERY DIVISION</div>
+        <h1>VOID<br><span>RUNNER</span></h1>
+        <div class="subtitle">ECHOES OF EREBUS</div>
+        <p class="tagline">“If someone hears this... don't let ECHO wake up.”</p>
+        <div class="menu-buttons">
+          <button id="startBtn" class="primary">START MISSION</button>
+          <button id="continueBtn">CONTINUE</button>
+          <button id="trophiesBtn">TROPHIES</button>
+        </div>
+        <div class="menu-note">PC: WASD + mouse • SHIFT sprint • E interact • LMB fire • ESC pause<br>Mobile: virtual stick + touch buttons</div>
+      </div>
+    </div>
+
+    <div id="game" class="hidden">
+      <canvas id="gameCanvas"></canvas>
+      <div id="hud">
+        <div class="top-left">
+          <div class="objective-label">CURRENT OBJECTIVE</div>
+          <div id="objective">Reach the station.</div>
+        </div>
+        <div class="status">
+          <div class="bar"><span>HP</span><div><i id="hpBar"></i></div><b id="hpText">100</b></div>
+          <div class="bar"><span>EN</span><div><i id="enBar"></i></div><b id="enText">100</b></div>
+        </div>
+        <div class="weapon">
+          <div id="weaponName">M9-E</div>
+          <div><span id="ammo">12</span> / ∞</div>
+        </div>
+        <div id="crosshair">+</div>
+        <div id="damageFlash"></div>
+        <div id="interact">E&nbsp; INTERACT</div>
+        <div id="message"></div>
+        <div id="bossBarWrap" class="hidden"><div id="bossName">ECHO</div><div class="bossbar"><i id="bossBar"></i></div></div>
+      </div>
+
+      <div id="touchControls" class="hidden">
+        <div id="stickZone"><div id="stick"></div></div>
+        <button id="touchFire" class="touch-btn">FIRE</button>
+        <button id="touchInteract" class="touch-btn small">E</button>
+        <button id="touchSprint" class="touch-btn small">RUN</button>
+      </div>
+
+      <div id="pause" class="screen hidden">
+        <div class="menu-card compact">
+          <div class="eyebrow">SYSTEM PAUSED</div>
+          <h2>EREBUS // HOLD</h2>
+          <button id="resumeBtn" class="primary">RESUME</button>
+          <button id="restartBtn">RESTART RUN</button>
+          <button id="quitBtn">MAIN MENU</button>
+        </div>
+      </div>
+
+      <div id="dialogue" class="overlay hidden">
+        <div class="dialogue-box">
+          <div id="speaker"></div>
+          <div id="dialogueText"></div>
+          <button id="dialogueNext">CONTINUE</button>
+        </div>
+      </div>
+
+      <div id="endScreen" class="screen hidden">
+        <div class="menu-card">
+          <div class="eyebrow" id="endEyebrow">TRANSMISSION COMPLETE</div>
+          <h2 id="endTitle">THE END</h2>
+          <p id="endText"></p>
+          <div id="scoreBox"></div>
+          <button id="againBtn" class="primary">PLAY AGAIN</button>
+          <button id="menuBtn">MAIN MENU</button>
+        </div>
+      </div>
+
+      <div id="trophyScreen" class="screen hidden">
+        <div class="menu-card trophy-card">
+          <div class="eyebrow">EREBUS // ARCHIVE</div>
+          <h2>TROPHIES</h2>
+          <div id="trophyList"></div>
+          <button id="closeTrophies">BACK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./src/main.ts"></script>
+</body>
+</html>
