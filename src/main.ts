@@ -249,7 +249,7 @@ class Game{
       }
     }
    }
-  }}
+  
  checkMission(){
   const alive=this.enemies.filter(e=>!e.dead).length;
   if(this.mission===1&&this.player.mesh.position.z<-0.5){this.advance()}
