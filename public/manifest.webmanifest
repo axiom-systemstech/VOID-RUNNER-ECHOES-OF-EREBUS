@@ -1,0 +1,12 @@
+{
+  "name": "VOID RUNNER: Echoes of Erebus",
+  "short_name": "VOID RUNNER",
+  "description": "A 3D sci-fi survival adventure in the browser.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
